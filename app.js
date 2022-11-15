@@ -1,10 +1,8 @@
+const express = require("express");
 const firebase =  require("firebase/app");
-const express = require('express');
 
 const app = express();
 const port = process.env.PORT || 4000;
-
-const homePage = require('./routes/index.js')
 
 const firebaseConfig = {
     apiKey: "AIzaSyDYitADpTcj6f-fz9iBCPrsnqvQ7UWpBW4",
@@ -16,18 +14,17 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-// const indexRoute = require(".routes/index.js");
-// const singlePostRoute = require(".routes/singlePost.js");
-// const indexRoute = require(".routes/index.js");
+const indexRoute = require("./routes/index");
+const singlePostRoute = require("./routes/singlePost");
+const createPostRoute = require("./routes/createPost");
 
 
-// app.use("/", indexRoute);
-// app.use("/post/:id", singlePostRoute);
+app.use("/", indexRoute);
+app.use("/post", singlePostRoute);
+app.use("/create", createPostRoute);
 
-// app.listen(port, () => (
-//     console.log(`Example app listening on port http://localhost:${port}`)
-// ))
-app.get('/', (req,res) => {
-    res.send("hello world");
-})
-app.listen(port, () => console.log("its workiing"));
+
+app.listen(port, () => (
+    console.log(`its workiing, check at http://localhost:${port}`)
+    )
+)

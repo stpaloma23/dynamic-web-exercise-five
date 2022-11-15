@@ -1,6 +1,5 @@
-const express = require('express')
+const express = require("express");
 const router = express.Router();
-const port = 4000
 
 const firestore = require("firebase/firestore");
 const db = firestore.getFirestore();
@@ -12,7 +11,7 @@ router.use((req, res, next) => {
 router.get("/:id", (req, res) => {
     res.send("Hello girl")
     const postId = req.params.id;
-    const postQuery = firestore.getDocs(firestore.doc(db, "posts", postId));
+    const postQuery = firestore.getDoc(firestore.doc(db, "posts", postId));
     postQuery
         .then((response) => {
             const post = response.data();
