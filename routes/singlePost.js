@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const port = 5000
+const port = 4000
 
 const firestore = require("firebase/firestore");
 const db = firestore.getFirestore();

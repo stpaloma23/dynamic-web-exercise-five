@@ -2,7 +2,7 @@ const firebase =  require("firebase/app");
 const express = require('express');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 const homePage = require('./routes/index.js')
 
