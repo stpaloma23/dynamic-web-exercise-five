@@ -9,7 +9,6 @@ router.use((req, res, next) => {
 })
 
 router.get("/:id", (req, res) => {
-    res.send("Hello girl")
     const postId = req.params.id;
     const postQuery = firestore.getDoc(firestore.doc(db, "posts", postId));
     postQuery

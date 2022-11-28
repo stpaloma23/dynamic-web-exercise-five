@@ -31,12 +31,11 @@ router.get("/submit", (req, res) => {
     const title = queryParams.postTitle; 
     const text = queryParams.postText; 
     const author = queryParams.author; 
-    // res.send({title, text, author});
     // create id from title to fix invalid doc ref error
     const idFromTitle = title.replace(/\s+/g,"-").toLowerCase();
     //submit to firebase 
     const setBlogPost = firestore.setDoc(
-        firestore.doc(db, "blogposts", idFromTitle),
+        firestore.doc(db, "posts", idFromTitle),
         {
             title, 
             text,
